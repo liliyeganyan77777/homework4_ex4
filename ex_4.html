@@ -1,0 +1,40 @@
+<script>
+    //     function positiveNumber() {
+    //         var myArr = [-5, -9, -111, -1000, -7]
+    //         var min = myArr[0]
+    //         for (i = 0; i < myArr.length; i++) {
+    //             if (myArr[i] > 0 && myArr[i] < min) {
+    //                 min = myArr[i]
+
+    //                 console.log(min)
+
+    //             } else {
+    //                 console.log(-1)
+    //             }
+    //         }
+    //     }
+    //    console.log(positiveNumber());
+
+
+    function minPositNum(myArr, min, index) {
+
+        if (index === myArr.length) {
+            return min
+        }
+
+        var minDigit = min
+        var num = myArr[index]
+
+        if (num >= 0 && min === -1) {
+            minDigit = num
+        }
+        if (num < min && num >= 0) {
+            minDigit = num
+        }
+        return minPositNum(myArr, minDigit, index + 1)
+    }
+
+
+    var myArr = [56, -9, 87, -23, 0, -105, 55, 1]
+    console.log(minPositNum(myArr, -1, 0))
+</script>
